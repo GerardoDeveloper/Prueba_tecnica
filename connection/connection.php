@@ -3,12 +3,13 @@ class ConnectionDataBase
 {
 
   function connection_mysql(){
-    $server_name = "localhost";
-    $user_name = "root";
-    $password = "";
-    $data_base = "prueba_formulario";
+    $user_name = "nSU4vkr4le";
+    $data_base = "nSU4vkr4le";
+    $password = "uroft4fNtO";
+    $server_name = "remotemysql.com";
+    $port = '3306';
 
-    $connection = mysqli_connect($server_name, $user_name, $password, $data_base);
+    $connection = mysqli_connect($server_name, $user_name, $password, $data_base, $port);
 
     if (!$connection) {
         echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
