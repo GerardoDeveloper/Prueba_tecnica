@@ -1,0 +1,14 @@
+{
+    "name": "gerardoveloper/prueba_formulario",
+    "description": "Preba tecnica",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gerardo developer",
+            "email": "gerardo.software.developer@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
