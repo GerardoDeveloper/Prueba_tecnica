@@ -30,10 +30,18 @@
       </div>
       <br>
       <br>
-      <input class="button-cancel" type="button" value="Cancelar" onclick="button_cancel(this)" id="button_cancel">
+      <input class="button-cancel" type="button" value="Cancelar"  id="button_cancel">
       <!-- <input id="btnguardar" class="button-submit" type="submit" name="enviar" value="Enviar" > -->
       <button id="btnguardar" name="enviar" class="button-submit">Enviar</button>
     </form>
   </div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('#button_cancel').click(function () {
+      alert('Se ha cancelado el envío del formulario');
+    });
+  })
+</script>
 </html>
