@@ -1,5 +1,5 @@
 <?php
-require 'connection/connection.php';
+require 'config/connection.php';
 
 $connection = new ConnectionDataBase;
 
