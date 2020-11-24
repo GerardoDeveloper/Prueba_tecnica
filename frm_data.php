@@ -4,7 +4,6 @@ require_once 'config/connection.php';
 $connection = new ConnectionDataBase;
 
 $destination_directory = "";
-$file_name = $_FILES['file']['name'];
 
 $name = $_POST['name'];
 $cell = $_POST['cell'];
@@ -17,23 +16,23 @@ $post = (isset($name) && !empty($name)) && (isset($cell) && !empty($cell)) &&
     (isset($file) && !empty($file));
 
 if ($post) {
-    upload_file();
-    if ($destination_directory != null && $destination_directory != "") {
-        $destination_directory = upload_file();
-    }
+    $destination_directory = upload_file();
 
     $sql = "INSERT into proveedor (name, cell, email, reply, url_file)
             values ('$name','$cell','$email','$reply', '$destination_directory')";
     $reply_query = mysqli_query($connection->connection_mysql(), $sql);
 
     if ($reply_query == 1) {
-        echo "<script>alert('Nombre: $name\\nNº Celular: $cell\\nEmail: $email\\nRespuesta: $reply\\nArchivo: $$file_name')</script>";
+        echo "<script>alert('Nombre: $name\\nNº Celular: $cell\\nEmail: $email\\nRespuesta: $reply\\nArchivo: $file')</script>";
 
         echo "<a href='index.html'>VOLVER</a>";
     }
 } else {
-    echo "<script>alert('Faltan datos de llenar')</script>";
-    echo "<a href='index.html'>VOLVER</a>";
+    echo "<script>
+            alert('Faltan datos de llenar');
+            window.location='index.html'
+         </script>
+         ";
 }
 
 function upload_file()
@@ -70,7 +69,6 @@ function upload_file()
                 echo "No se puede subir un archivo con este tipo de extención. Debe ser: " . implode(", ", $allowed);
             }
         }
-
     } else {
         echo "Error";
     }
